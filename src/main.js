@@ -104,3 +104,17 @@ const search = () => {
   window.open(`https://www.baidu.com/s?wd=${searchContent}`)
 }
 
+//实现聚焦效果
+const $searchBox = $('.searchBox')
+const $searchBoxIcon = $('.icon')
+const $bgImg = $('.bgImg')
+$searchBox.on('click', () => {
+  $searchBoxIcon.addClass('active')
+  $searchBox.addClass('focused')
+  $bgImg.addClass('focused')
+})
+$bgImg.on('click', () => {
+  $searchBoxIcon.removeClass('active')
+  $searchBox.removeClass('focused')
+  $bgImg.removeClass('focused')
+})

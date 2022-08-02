@@ -29,16 +29,22 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  z-index: 2;
   height: 40px;
-  width: 300px;
+  width: 200px;
   margin-bottom: 70px;
   padding: 10px;
   border-radius: 30px;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(5px);
   box-shadow: 0 0 5px 1px gray;
-  z-index: 1;
-  transition: all 250ms ease;
+  transition: all 150ms ease;
   background: rgba(255, 255, 255, 0.5); }
+  .searchBox.focused {
+    width: 400px;
+    background: rgba(255, 255, 255, 0.7); }
+    .searchBox.focused ::placeholder {
+      color: #646464;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
   .searchBox input {
     flex-grow: 1;
     width: 100%;
@@ -49,25 +55,31 @@ body {
     font-size: 20px;
     transition: all 250ms ease-in-out; }
     .searchBox input::placeholder {
-      color: rgba(255, 255, 255, 0.7);
+      color: white;
       font-size: 16px;
-      text-shadow: 0 0 2px rgba(255, 255, 255, 0.7); }
-  .searchBox .icon {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+      transition: all 250ms; }
+  .searchBox > .searchBox-btn > .icon {
     width: 1em;
     height: 1em;
     vertical-align: -0.15em;
-    fill: black;
+    fill: #666666;
     overflow: hidden;
     opacity: 0;
     transition-delay: 0.3s;
     transition: all 250ms ease; }
-  .searchBox:hover {
-    width: 400px; }
-    .searchBox:hover .icon {
+    .searchBox > .searchBox-btn > .icon.active {
       opacity: 1; }
+  .searchBox:hover {
+    width: 400px;
+    background: rgba(255, 255, 255, 0.9); }
+    .searchBox:hover ::placeholder {
+      color: #646464;
+      text-shadow: 0 0 2px rgba(255, 255, 255, 0.5); }
 
 .headTime {
   height: 70px;
+  z-index: 2;
   font-size: 32px;
   text-align: center;
   color: white;
@@ -80,39 +92,27 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
-  overflow: hidden; }
-  .bgWrapper > .bgImg {
-    z-index: 1;
-    height: 100%;
-    background-size: cover;
-    background: url("https://img.bald3r.wang/img/mountain-grey.jpg") center; }
-
-.searchForm {
+  z-index: 1;
+  overflow: hidden;
   display: flex;
-  justify-content: space-between; }
-  @media (min-width: 500px) {
-    .searchForm {
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto; } }
-  .searchForm > input {
-    width: 100%;
-    margin-right: 10px;
-    height: 40px;
-    padding: 0 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px; }
-  .searchForm > button {
-    white-space: nowrap;
-    padding: 0 24px;
-    border: none;
-    border-radius: 4px;
-    background: #1899e1;
-    color: white;
-    font-size: 16px; }
+  justify-content: center;
+  align-items: center; }
+  .bgWrapper > .bgImg {
+    background-size: cover;
+    background: url(./bg.jpg) center;
+    background-size: auto;
+    width: 150%;
+    height: 150%;
+    position: absolute;
+    left: -50px;
+    top: -50px;
+    transition: all 250ms; }
+    .bgWrapper > .bgImg.focused {
+      filter: blur(20px);
+      transform: scale(1.1); }
 
 .globalMain {
+  z-index: 2;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto; }
@@ -138,12 +138,15 @@ body {
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        background: white;
-        border: 1px solid #ddd;
+        background: transparent;
         border-radius: 4px;
         padding: 20px 0;
         position: relative;
-        cursor: pointer; }
+        cursor: pointer;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 5px 2px grey;
+        color: white;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.5); }
         .globalMain > .siteList > li .site > .logo {
           width: 64px;
           height: 64px;
@@ -171,12 +174,16 @@ body {
         align-items: center;
         flex-direction: column;
         padding: 35px 0;
-        background: white;
-        border: 1px solid #ddd; }
+        background: transparent;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 5px 2px gray;
+        color: white;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.5); }
         .globalMain > .siteList > li > .addButton > .icon {
           width: 64px;
           height: 64px;
           display: flex;
+          fill: white;
           justify-content: center;
           align-items: center; }
         .globalMain > .siteList > li > .addButton > .text {
