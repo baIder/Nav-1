@@ -88,12 +88,6 @@ body {
     background-size: cover;
     background: url("https://img.bald3r.wang/img/mountain-grey.jpg") center; }
 
-.globalHeader {
-  margin: 20px; }
-  @media (min-width: 500px) {
-    .globalHeader {
-      margin: 50px 0 80px; } }
-
 .searchForm {
   display: flex;
   justify-content: space-between; }

@@ -84,12 +84,14 @@ setInterval(() => {
   $time.innerHTML = `${hh}:${mm}:${ss}`
 }, 1000)
 
-
+//实现搜索
 const $searchText = $('#searchText')
 const $btnSearch = $('.btnSearch')
+
 $btnSearch.on('click', () => {
   search()
 })
+
 $searchText.on('keypress', (e) => {
   const {key} = e
   if (key === 'Enter') {
@@ -97,8 +99,8 @@ $searchText.on('keypress', (e) => {
   }
 })
 
-
 const search = () => {
   const searchContent = $searchText.val()
   window.open(`https://www.baidu.com/s?wd=${searchContent}`)
 }
+
