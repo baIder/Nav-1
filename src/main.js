@@ -59,14 +59,14 @@ window.onbeforeunload = () => {
   localStorage.setItem("x", string)
 }
 
-$(document).on("keypress", (e) => {
-  const {key} = e
-  for (let i = 0; i < hashMap.length; i++) {
-    if (hashMap[i].logo.toLowerCase() === key) {
-      window.open(hashMap[i].url)
-    }
-  }
-})
+// $(document).on("keypress", (e) => {
+//   const {key} = e
+//   for (let i = 0; i < hashMap.length; i++) {
+//     if (hashMap[i].logo.toLowerCase() === key) {
+//       window.open(hashMap[i].url)
+//     }
+//   }
+// })
 
 
 //显示时间
@@ -77,12 +77,28 @@ const addZero = (number) => {
   return number < 10 ? '0' + number : number
 }
 setInterval(() => {
-  console.log(1)
   const now = new Date()
   hh = addZero(now.getHours())
   mm = addZero(now.getMinutes())
   ss = addZero(now.getSeconds())
   $time.innerHTML = `${hh}:${mm}:${ss}`
-
 }, 1000)
 
+
+const $searchText = $('#searchText')
+const $btnSearch = $('.btnSearch')
+$btnSearch.on('click', () => {
+  search()
+})
+$searchText.on('keypress', (e) => {
+  const {key} = e
+  if (key === 'Enter') {
+    search()
+  }
+})
+
+
+const search = () => {
+  const searchContent = $searchText.val()
+  window.open(`https://www.baidu.com/s?wd=${searchContent}`)
+}
