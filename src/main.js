@@ -1,22 +1,24 @@
-const $siteList = $(".siteList");
-const $lastLi = $siteList.find("li.last");
-const x = localStorage.getItem("x");
-const xObject = JSON.parse(x);
+const $siteList = $(".siteList")
+const $lastLi = $siteList.find("li.last")
+const x = localStorage.getItem("x")
+const xObject = JSON.parse(x)
 const hashMap = xObject || [
-  { logo: "A", url: "https://www.acfun.cn" },
-  { logo: "B", url: "https://bilibili.com" },
-];
+  {logo: "A", url: "https://www.acfun.cn"},
+  {logo: "B", url: "https://bilibili.com"},
+]
+const $time = $('.headTime')[0]
+
 
 const simplifyUrl = (url) => {
   return url
     .replace("https://", "")
     .replace("http://", "")
     .replace("www.", "")
-    .replace(/\/.*/, "");
-};
+    .replace(/\/.*/, "")
+}
 
 const render = () => {
-  $siteList.find("li:not(.last)").remove();
+  $siteList.find("li:not(.last)").remove()
   hashMap.forEach((node, index) => {
     const $li = $(`<li>
             <div class="site">
@@ -26,42 +28,61 @@ const render = () => {
               </div>
             </div>
         </li>
-       `).insertBefore($lastLi);
+       `).insertBefore($lastLi)
     $li.on("click", () => {
-      window.open(node.url);
-    });
+      window.open(node.url)
+    })
     $(".close").on("click", (e) => {
-      console.log("111");
-      e.stopPropagation();
-      hashMap.splice(index, 1);
-      render();
-    });
-  });
-};
+      console.log("111")
+      e.stopPropagation()
+      hashMap.splice(index, 1)
+      render()
+    })
+  })
+}
 
-render();
+render()
 
 $(".addButton").on("click", () => {
-  let url = window.prompt("请问您要添加的网址是：");
-  console.log(url);
+  let url = window.prompt("请问您要添加的网址是：")
+  console.log(url)
   if (url.indexOf("http") !== 0) {
-    url = "https://" + url;
+    url = "https://" + url
   }
-  console.log(url);
-  hashMap.push({ logo: simplifyUrl(url)[0], url: url });
-  render();
-});
+  console.log(url)
+  hashMap.push({logo: simplifyUrl(url)[0], url: url})
+  render()
+})
 
 window.onbeforeunload = () => {
-  const string = JSON.stringify(hashMap);
-  localStorage.setItem("x", string);
-};
+  const string = JSON.stringify(hashMap)
+  localStorage.setItem("x", string)
+}
 
 $(document).on("keypress", (e) => {
-  const { key } = e;
+  const {key} = e
   for (let i = 0; i < hashMap.length; i++) {
     if (hashMap[i].logo.toLowerCase() === key) {
-      window.open(hashMap[i].url);
+      window.open(hashMap[i].url)
     }
   }
-});
+})
+
+
+//显示时间
+let hh = 0
+let mm = 0
+let ss = 0
+const addZero = (number) => {
+  return number < 10 ? '0' + number : number
+}
+setInterval(() => {
+  console.log(1)
+  const now = new Date()
+  hh = addZero(now.getHours())
+  mm = addZero(now.getMinutes())
+  ss = addZero(now.getSeconds())
+  $time.innerHTML = `${hh}:${mm}:${ss}`
+
+}, 1000)
+
