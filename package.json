@@ -8,7 +8,6 @@
   },
   "name": "nav-1",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/baIder/Nav-1.git",
   "author": "baIder <511763880@qq.com>",
   "license": "MIT"
