@@ -11,12 +11,12 @@ const hashMap = [
   {logo: "W", url: "https://bald3r.wang/"},
 ]
 // const hashMap = xObject || [
+//   {logo: "B", url: "https://www.bootcdn.cn/"},
 //   {logo: "G", url: "https://github.com/baIder"},
-//   {logo: "B", url: "https://bald3r.wang/"},
-//   {logo: "B", url: "https://bilibili.com"},
-//   {logo: "B", url: "https://bilibili.com"},
-//   {logo: "B", url: "https://bilibili.com"},
-//   {logo: "B", url: "https://bilibili.com"}
+//   {logo: "I", url: "https://www.iconfont.cn/"},
+//   {logo: "M", url: "https://gitee.com/"},
+//   {logo: "P", url: "https://pixso.cn/"},
+//   {logo: "W", url: "https://bald3r.wang/"},
 // ]
 const $time = $('.headTime')
 
@@ -44,11 +44,11 @@ const render = () => {
             </div>
         </li>
        `).insertBefore($lastLi)
-    $li.on("click", () => {
+    $li.on("click", (e) => {
+      e.stopPropagation()
       window.open(node.url)
     })
     $li.find('div').find('div:last').on("click", (e) => {
-      console.log("111")
       e.stopPropagation()
       hashMap.splice(index, 1)
       render()
@@ -58,8 +58,12 @@ const render = () => {
 
 render()
 
-$(".addButton").on("click", () => {
+$(".addButton").on("click", (e) => {
+  e.stopPropagation()
   let url = window.prompt("请问您要添加的网址是：")
+  if (!url) {
+    return
+  }
   console.log(url)
   if (url.indexOf("http") !== 0) {
     url = "https://" + url
@@ -74,22 +78,9 @@ window.onbeforeunload = () => {
   localStorage.setItem("x", string)
 }
 
-// $(document).on("keypress", (e) => {
-//   const {key} = e
-//   for (let i = 0; i < hashMap.length; i++) {
-//     if (hashMap[i].logo.toLowerCase() === key) {
-//       window.open(hashMap[i].url)
-//     }
-//   }
-// })
-
-const vpW = $(window).width()
-const vpH = $(window).height()
-
 window.onresize = function () {
   location.reload()
 }
-
 
 //显示时间
 let hh = 0

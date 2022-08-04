@@ -320,6 +320,12 @@ body {
     background: rgba(255, 255, 255, 0.5);
     transition: all 150ms ease;
 
+    @media (max-width: 500px) {
+      height: 100vh;
+      width: 100vw;
+      border-radius: 0px;
+    }
+
 
     > .siteList {
       $siteSize: 120px;
@@ -380,8 +386,16 @@ body {
             position: absolute;
             right: 4px;
             top: 4px;
-            cursor: default;
-            //display: none;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+
+            transition: all 150ms;
+
+            @media (max-width: 500px) {
+              opacity: 1;
+              pointer-events: auto;
+            }
 
             > svg {
               width: 16px;
@@ -391,7 +405,8 @@ body {
           }
 
           &:hover > .close {
-            display: block;
+            opacity: 1;
+            pointer-events: auto;
           }
         }
 
