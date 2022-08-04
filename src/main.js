@@ -74,7 +74,6 @@ const vpH = $(window).height()
 window.onresize = function () {
   location.reload()
 }
-$(":root").css("--color1", "red")
 
 
 //显示时间
@@ -124,34 +123,36 @@ $searchBox.on('click', () => {
   $searchBox.addClass('focused')
   $bgImg.addClass('focused')
   $('body').addClass('focused')
+  $('.weather').removeClass('hidden')
 })
 $bgShade.on('click', () => {
   $searchBoxIcon.removeClass('active')
   $searchBox.removeClass('focused')
   $bgImg.removeClass('focused')
+  $('.weather').addClass('hidden')
 })
 
 
 //weather
+const topNavFontColor = "ffffff"
 WIDGET = {
   "CONFIG": {
     "modules": "01234",
-    "background": "3",
-    "tmpColor": "FFFFFF",
+    "background": "5",
+    "tmpColor": topNavFontColor,
     "tmpSize": "16",
-    "cityColor": "FFFFFF",
+    "cityColor": topNavFontColor,
     "citySize": "16",
-    "aqiColor": "FFFFFF",
+    "aqiColor": topNavFontColor,
     "aqiSize": "16",
     "weatherIconSize": "24",
     "alertIconSize": "18",
     "padding": "10px 10px 10px 10px",
-    "shadow": "1",
+    "shadow": "0",
     "language": "auto",
-    "borderRadius": "10",
     "fixed": "false",
     "vertical": "top",
     "horizontal": "left",
-    "key": "9c960eede2d54a42b9355b6798f4f62f"
+    "key": "bc8690592c1f49fe952797f3ceeebfa3"
   }
 }

@@ -7,33 +7,13 @@
     name="viewport"
     content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
   />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-  />
   <link rel="stylesheet" href="style.css"/>
   <title>发财导航 - 年轻人的第一个导航</title>
 </head>
 <body>
-<div class="topNav">
-  <div class="weather">
-    <div id="he-plugin-simple"></div>
-  </div>
-  <div class="links">
-    <div class="GitHub">GitHub</div>
-    <div class="blog">我的博客</div>
-    <div class="btnShare">
-      <input type="checkbox" id="check"/>
-      <label class="shareButton" for="check">分享</label>
-      <div class="media-icons">
-        <a href="#"><i class="fab fa-qq"></i></a>
-        <a href="#"><i class="fab fa-weixin"></i></a>
-        <a href="#"><i class="fab fa-weibo"></i></a>
-        <a href="#"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </div>
-  </div>
-</div>
+<svg class="app" aria-hidden="true">
+  <use xlink:href="#icon-app"></use>
+</svg>
 <div class="headTime"></div>
 <div class="searchBox">
   <div class="btnSite searchBox-btn">
@@ -48,7 +28,9 @@
     </svg>
   </div>
 </div>
-
+<div class="weather hidden">
+  <div id="he-plugin-simple"></div>
+</div>
 <main class="globalMain hidden">
   <ul class="siteList">
     <li class="last">
@@ -79,7 +61,7 @@
   <div class="bgImg"></div>
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="//at.alicdn.com/t/c/font_3562801_omm18dtrae.js"></script>
+<script src="//at.alicdn.com/t/c/font_3562801_z65u4yuyxyg.js"></script>
 <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
 <script src="main.js"></script>
 </body>

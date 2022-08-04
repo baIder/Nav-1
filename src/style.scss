@@ -44,130 +44,41 @@ body {
   }
 }
 
-.topNav {
+.app {
   position: absolute;
+  right: 0;
   top: 0;
-  left: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  z-index: 2;
 
-  width: 100vw;
-  height: 50px;
+  padding: 10px;
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+
+  fill: white;
+
   border: 1px solid red;
+}
 
-  > .links {
-    border: 1px solid red;
-    display: flex;
-    align-items: center;
+.weather {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 250ms;
+  opacity: 1;
+  pointer-events: none;
+  text-align: center;
+  width: 182px;
+  height: 44px;
 
-    > .btnShare {
-      border: 1px solid green;
-
-
-      > .shareButton {
-        width: 50px;
-        height: 40px;
-        border-radius: 10px;
-        line-height: 40px;
-        text-align: center;
-        font-size: 16px;
-        display: block;
-
-        color: #333;
-        cursor: pointer;
-        background: #fff;
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-        transition: all 0.3s ease;
-
-        &::after {
-          content: '取消';
-          position: relative;
-          width: 50px;
-          height: 40px;
-          left: 0;
-          top: 0;
-          background: #fff;
-          border-radius: 35px;
-          opacity: 0;
-        }
-      }
-
-      > #check {
-        display: none;
-
-        &:checked ~ label::after {
-          opacity: 1;
-        }
-
-        &:checked ~ .media-icons {
-          opacity: 1;
-          pointer-events: auto;
-        }
-      }
-
-      > .media-icons {
-        position: absolute;
-
-        top: 100px;
-        right: 0;
-
-
-        background: #fff;
-        width: 100px;
-        height: 50px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        border-radius: 35px;
-        padding: 4px;
-        z-index: 1;
-        opacity: 0;
-        pointer-events: none;
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-        transition: all 0.3s ease;
-
-        &::before {
-          content: '';
-          width: 18px;
-          height: 18px;
-          position: absolute;
-          left: 50%;
-          background-color: #fff;
-          top: -9px;
-          transform: translateX(-50%) rotate(45deg);
-          z-index: -1;
-        }
-
-        > a {
-          font-size: 22px;
-          color: #333;
-          transition: all 0.3s ease;
-
-          &:hover {
-            transform: translateY(-2px);
-          }
-
-          &:nth-child(1):hover {
-            color: #000000;
-          }
-
-          &:nth-child(2):hover {
-            color: #7bb32e;
-          }
-
-          &:nth-child(3):hover {
-            color: #df2029;
-          }
-
-          &:nth-child(4):hover {
-            color: #000000;
-          }
-        }
-      }
-    }
+  &.hidden {
+    opacity: 0;
   }
 }
 
@@ -189,10 +100,9 @@ body {
   border-radius: 10px;
   backdrop-filter: blur(5px);
   box-shadow: 0 0 5px 1px gray;
-
+  background: rgba(255, 255, 255, 0.5);
   transition: all 150ms ease;
 
-  background: rgba(255, 255, 255, 0.5);
 
   @media (max-width: 500px) {
     top: 200px;
@@ -274,14 +184,13 @@ body {
   top: 115px;
   height: 70px;
   z-index: 2;
+  pointer-events: none;
 
   margin-bottom: 50px;
 
   font-size: 64px;
   text-align: center;
-  //color: var(--color1);
   color: white;
-  //text-shadow: 2px 2px 8px #FF0000;
   text-shadow: 0 0 5px grey;
 
   transition: all 500ms ease-in-out;
