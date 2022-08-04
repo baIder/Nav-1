@@ -99,6 +99,9 @@ body {
   .searchBox.focused {
     width: 400px;
     background: rgba(255, 255, 255, 0.7); }
+    @media (max-width: 500px) {
+      .searchBox.focused {
+        width: 200px; } }
     .searchBox.focused ::placeholder {
       color: #646464;
       text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
