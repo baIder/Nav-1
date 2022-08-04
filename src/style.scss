@@ -26,6 +26,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   height: 100vh;
   width: 100vw;
@@ -323,7 +324,7 @@ body {
     @media (max-width: 500px) {
       height: 100vh;
       width: 100vw;
-      border-radius: 0px;
+      border-radius: 0;
     }
 
 
@@ -335,6 +336,10 @@ body {
       flex-wrap: wrap;
       justify-content: space-between;
       padding: 40px;
+
+      overflow: auto;
+      height: 100%;
+
       @media (min-width: 500px) {
         margin-left: 0;
         margin-right: -25px;
