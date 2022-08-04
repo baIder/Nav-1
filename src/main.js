@@ -2,11 +2,23 @@ const $siteList = $(".siteList")
 const $lastLi = $siteList.find("li.last")
 const x = localStorage.getItem("x")
 const xObject = JSON.parse(x)
-const hashMap = xObject || [
-  {logo: "A", url: "https://www.acfun.cn"},
-  {logo: "B", url: "https://bilibili.com"},
+const hashMap = [
+  {logo: "B", url: "https://www.bootcdn.cn/"},
+  {logo: "G", url: "https://github.com/baIder"},
+  {logo: "I", url: "https://www.iconfont.cn/"},
+  {logo: "M", url: "https://gitee.com/"},
+  {logo: "P", url: "https://pixso.cn/"},
+  {logo: "W", url: "https://bald3r.wang/"},
 ]
-const $time = $('.headTime')[0]
+// const hashMap = xObject || [
+//   {logo: "G", url: "https://github.com/baIder"},
+//   {logo: "B", url: "https://bald3r.wang/"},
+//   {logo: "B", url: "https://bilibili.com"},
+//   {logo: "B", url: "https://bilibili.com"},
+//   {logo: "B", url: "https://bilibili.com"},
+//   {logo: "B", url: "https://bilibili.com"}
+// ]
+const $time = $('.headTime')
 
 
 const simplifyUrl = (url) => {
@@ -24,7 +36,10 @@ const render = () => {
             <div class="site">
               <div class="logo">${node.logo}</div>
               <div class="link">${simplifyUrl(node.url)}</div>
-              <div class="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <div class="close">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-cuo"></use>
+                </svg>
               </div>
             </div>
         </li>
@@ -32,7 +47,7 @@ const render = () => {
     $li.on("click", () => {
       window.open(node.url)
     })
-    $(".close").on("click", (e) => {
+    $li.find('div').find('div:last').on("click", (e) => {
       console.log("111")
       e.stopPropagation()
       hashMap.splice(index, 1)
@@ -85,12 +100,12 @@ const addZero = (number) => {
 let now = new Date()
 hh = addZero(now.getHours())
 mm = addZero(now.getMinutes())
-$time.innerHTML = `${hh}:${mm}`
+$time[0].innerHTML = `${hh}:${mm}`
 setInterval(() => {
   now = new Date()
   hh = addZero(now.getHours())
   mm = addZero(now.getMinutes())
-  $time.innerHTML = `${hh}:${mm}`
+  $time[0].innerHTML = `${hh}:${mm}`
 }, 1000)
 
 //实现搜索
@@ -156,3 +171,15 @@ WIDGET = {
     "key": "bc8690592c1f49fe952797f3ceeebfa3"
   }
 }
+
+//收藏网站
+const $app = $('.app')
+const $siteWrapper = $('.siteWrapper')
+// const $headTime = $('.headTime')
+$app.on('click', () => {
+  $searchBox.addClass('hidden')
+  $time.addClass(('hidden'))
+  $bgImg.addClass('focused')
+  $('body').addClass('focused')
+  $siteWrapper.removeClass('hidden')
+})
