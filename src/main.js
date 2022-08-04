@@ -68,20 +68,30 @@ window.onbeforeunload = () => {
 //   }
 // })
 
+const vpW = $(window).width()
+const vpH = $(window).height()
+
+window.onresize = function () {
+  location.reload()
+}
+$(":root").css("--color1", "red")
+
 
 //显示时间
 let hh = 0
 let mm = 0
-let ss = 0
 const addZero = (number) => {
   return number < 10 ? '0' + number : number
 }
+let now = new Date()
+hh = addZero(now.getHours())
+mm = addZero(now.getMinutes())
+$time.innerHTML = `${hh}:${mm}`
 setInterval(() => {
-  const now = new Date()
+  now = new Date()
   hh = addZero(now.getHours())
   mm = addZero(now.getMinutes())
-  ss = addZero(now.getSeconds())
-  $time.innerHTML = `${hh}:${mm}:${ss}`
+  $time.innerHTML = `${hh}:${mm}`
 }, 1000)
 
 //实现搜索
@@ -108,13 +118,40 @@ const search = () => {
 const $searchBox = $('.searchBox')
 const $searchBoxIcon = $('.icon')
 const $bgImg = $('.bgImg')
+const $bgShade = $('.bgShade')
 $searchBox.on('click', () => {
   $searchBoxIcon.addClass('active')
   $searchBox.addClass('focused')
   $bgImg.addClass('focused')
+  $('body').addClass('focused')
 })
-$bgImg.on('click', () => {
+$bgShade.on('click', () => {
   $searchBoxIcon.removeClass('active')
   $searchBox.removeClass('focused')
   $bgImg.removeClass('focused')
 })
+
+
+//weather
+WIDGET = {
+  "CONFIG": {
+    "modules": "01234",
+    "background": "3",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "FFFFFF",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "1",
+    "language": "auto",
+    "borderRadius": "10",
+    "fixed": "false",
+    "vertical": "top",
+    "horizontal": "left",
+    "key": "9c960eede2d54a42b9355b6798f4f62f"
+  }
+}
