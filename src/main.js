@@ -174,12 +174,35 @@ WIDGET = {
 
 //收藏网站
 const $app = $('.app')
+const $search = $('.search')
 const $siteWrapper = $('.siteWrapper')
-// const $headTime = $('.headTime')
-$app.on('click', () => {
+const showSite = () => {
   $searchBox.addClass('hidden')
   $time.addClass(('hidden'))
   $bgImg.addClass('focused')
+  $('.weather').addClass('hidden')
   $('body').addClass('focused')
   $siteWrapper.removeClass('hidden')
+  $app.addClass('hidden')
+  $search.removeClass('hidden')
+}
+const showSearch = () => {
+  $siteWrapper.addClass('hidden')
+  $searchBox.removeClass('hidden')
+  $time.removeClass(('hidden'))
+  $bgImg.removeClass('focused')
+  $('body').removeClass('focused')
+  $app.removeClass('hidden')
+  $search.addClass('hidden')
+}
+$app.on('click', () => {
+  showSite()
+})
+
+$search.on('click', () => {
+  showSearch()
+})
+
+$siteWrapper.on('click', () => {
+  showSearch()
 })

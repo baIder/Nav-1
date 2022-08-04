@@ -31,11 +31,11 @@ body {
     width: 100px;
     z-index: 0; }
 
-.app {
+.topIcon {
   position: absolute;
   right: 10px;
   top: 10px;
-  z-index: 2;
+  z-index: 5;
   padding: 8px;
   width: 44px;
   height: 44px;
@@ -46,8 +46,11 @@ body {
   box-shadow: 0 0 5px 3px rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.1);
   transition: all 50ms; }
-  .app:active {
+  .topIcon:active {
     transform: scale(0.8); }
+  .topIcon.hidden {
+    opacity: 0;
+    pointer-events: none; }
 
 .weather {
   position: absolute;
@@ -86,7 +89,8 @@ body {
   background: rgba(255, 255, 255, 0.5);
   transition: all 150ms ease; }
   .searchBox.hidden {
-    display: none; }
+    opacity: 0;
+    pointer-events: none; }
   @media (max-width: 500px) {
     .searchBox {
       top: 200px;
@@ -144,9 +148,10 @@ body {
   text-align: center;
   color: white;
   text-shadow: 0 0 5px grey;
-  transition: all 500ms ease-in-out; }
+  transition: all 150ms ease; }
   .headTime.hidden {
-    display: none; }
+    opacity: 0;
+    pointer-events: none; }
   @media (max-width: 500px) {
     .headTime {
       top: 90px; } }
@@ -196,19 +201,29 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: 2;
-  border: 1px solid red;
-  padding: 100px; }
+  padding: 60px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 400ms; }
   @media (max-width: 500px) {
     .siteWrapper {
       padding: 0; } }
   .siteWrapper.hidden {
-    display: none; }
+    opacity: 0;
+    pointer-events: none; }
   .siteWrapper .globalMain {
     z-index: 2;
-    max-width: 900px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid green; }
+    height: 80vh;
+    width: 75vw;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 5px 1px gray;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 150ms ease; }
     .siteWrapper .globalMain > .siteList {
       margin: 20px;
       display: flex;
