@@ -266,8 +266,8 @@ body {
           cursor: pointer;
           backdrop-filter: blur(5px);
           box-shadow: 0 0 5px 2px grey;
-          color: white;
-          text-shadow: 0 0 2px rgba(255, 255, 255, 0.5); }
+          color: #646464;
+          text-shadow: 0 0 1px #646464; }
           .siteWrapper .globalMain > .siteList > li > .site > .logo {
             width: 64px;
             height: 64px;
@@ -275,7 +275,8 @@ body {
             justify-content: center;
             align-items: center;
             font-size: 64px;
-            text-transform: uppercase; }
+            text-transform: uppercase;
+            text-shadow: 0 0 3px #646464; }
           .siteWrapper .globalMain > .siteList > li > .site > .link {
             font-size: 14px;
             margin-top: 4px; }
@@ -294,7 +295,7 @@ body {
             .siteWrapper .globalMain > .siteList > li > .site > .close > svg {
               width: 16px;
               height: 16px;
-              fill: white; }
+              fill: #646464; }
           .siteWrapper .globalMain > .siteList > li > .site:hover > .close {
             opacity: 1;
             pointer-events: auto; }
@@ -310,13 +311,13 @@ body {
           backdrop-filter: blur(5px);
           border-radius: 10px;
           box-shadow: 0 0 5px 2px gray;
-          color: white;
-          text-shadow: 0 0 2px rgba(255, 255, 255, 0.5); }
+          color: #646464;
+          text-shadow: 0 0 1px #646464; }
           .siteWrapper .globalMain > .siteList > li.last > .addButton > .icon {
             width: 64px;
             height: 64px;
             display: flex;
-            fill: white;
+            fill: #646464;
             justify-content: center;
             align-items: center; }
           .siteWrapper .globalMain > .siteList > li.last > .addButton > .text {

@@ -311,6 +311,7 @@ body {
   }
 
   .globalMain {
+    $textColor: #646464;
     z-index: 2;
     max-width: 1000px;
     margin-left: auto;
@@ -374,8 +375,9 @@ body {
           cursor: pointer;
           backdrop-filter: blur(5px);
           box-shadow: 0 0 5px 2px grey;
-          color: white;
-          text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+          color: $textColor;
+
+          text-shadow: 0 0 1px $textColor;
 
           > .logo {
             width: 64px;
@@ -385,6 +387,7 @@ body {
             align-items: center;
             font-size: 64px;
             text-transform: uppercase;
+            text-shadow: 0 0 3px $textColor;
           }
 
           > .link {
@@ -410,7 +413,7 @@ body {
             > svg {
               width: 16px;
               height: 16px;
-              fill: white;
+              fill: $textColor;
             }
           }
 
@@ -436,14 +439,14 @@ body {
             backdrop-filter: blur(5px);
             border-radius: 10px;
             box-shadow: 0 0 5px 2px gray;
-            color: white;
-            text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+            color: $textColor;
+            text-shadow: 0 0 1px $textColor;
 
             > .icon {
               width: 64px;
               height: 64px;
               display: flex;
-              fill: white;
+              fill: $textColor;
               justify-content: center;
               align-items: center;
             }
