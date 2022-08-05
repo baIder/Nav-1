@@ -2,15 +2,7 @@ const $siteList = $(".siteList")
 const $lastLi = $siteList.find("li.last")
 const x = localStorage.getItem("x")
 const xObject = JSON.parse(x)
-const hashMap = [
-  {logo: "B", url: "https://www.bootcdn.cn/"},
-  {logo: "G", url: "https://github.com/baIder"},
-  {logo: "I", url: "https://www.iconfont.cn/"},
-  {logo: "M", url: "https://gitee.com/"},
-  {logo: "P", url: "https://pixso.cn/"},
-  {logo: "W", url: "https://bald3r.wang/"},
-]
-// const hashMap = xObject || [
+// const hashMap = [
 //   {logo: "B", url: "https://www.bootcdn.cn/"},
 //   {logo: "G", url: "https://github.com/baIder"},
 //   {logo: "I", url: "https://www.iconfont.cn/"},
@@ -18,6 +10,14 @@ const hashMap = [
 //   {logo: "P", url: "https://pixso.cn/"},
 //   {logo: "W", url: "https://bald3r.wang/"},
 // ]
+const hashMap = xObject || [
+  {logo: "B", url: "https://www.bootcdn.cn/"},
+  {logo: "G", url: "https://github.com/baIder"},
+  {logo: "I", url: "https://www.iconfont.cn/"},
+  {logo: "M", url: "https://gitee.com/"},
+  {logo: "P", url: "https://pixso.cn/"},
+  {logo: "W", url: "https://bald3r.wang/"},
+]
 const $time = $('.headTime')
 
 
